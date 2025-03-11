@@ -1,0 +1,15 @@
+<label class="label"><span data-bind="text: getMessage()"></span></label>
+<br/>
+<label class="label"><span data-bind="text: getPrice()"></span></label>
+<label class="label"><span data-bind="text: price"></span></label>
+<br/>
+<label class="label"><span data-bind="text: message"></span></label>
+<h2>All Orders List</h2>
+<h4>People</h4>
+<ul data-bind="foreach: allorderlist">
+    <li>
+        Order IcrementId : <span data-bind="text: increment_id"> </span>
+        Grand Total : <span data-bind="text: $parent.priceFormat(grand_total)"> </span>
+        Shipping Amount : <span data-bind="text: $parent.priceFormat(shipping_amount)"> </span>
+    </li>
+</ul>

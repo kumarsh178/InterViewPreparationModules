@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Interview\Practice\Helper\Data">
+        <arguments>
+         <argument name="orderStatus" xsi:type="array">
+            <item name="order_status" xsi:type="array">
+                <item name="new" xsi:type="string">newState</item>
+                <item name="pending" xsi:type="string">pendingState</item>
+                <item name="processing" xsi:type="string">processingState</item>
+                <item name="holded" xsi:type="string">holdedState</item>
+                <item name="canceled" xsi:type="string">canceledState</item>
+                <item name="complete" xsi:type="string">completeState</item>
+            </item>
+         </argument>
+        </arguments>
+    </type>
+</config>

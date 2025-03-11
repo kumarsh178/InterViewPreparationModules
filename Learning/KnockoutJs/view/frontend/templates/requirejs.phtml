@@ -1,0 +1,49 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+/** @var \Magento\Catalog\Model\ResourceModel\Product\Collection $productCollection */
+$productCollection = $objectManager->create('Magento\Catalog\Model\ResourceModel\Product\Collection');
+/** Apply filters here */
+$collection = $productCollection->addAttributeToSelect('*');
+$collection->getSelect()->limit(20,1);   
+?>
+<div data-bind="scope: 'usemap'">
+         <span data-bind="text: getModulename()"></span>
+        <ul data-bind="foreach: getStudentsList()">
+            <li><span data-bind="text: name"></span></li>
+         </ul>
+         <ul data-bind="foreach: allproducts">
+         <span data-bind="text: entity_id"></span><br>
+            <li><span data-bind="text: sku"></span><br>
+            <span data-bind="text: type_id"></span><br>
+            <span data-bind="text: created_at"></span><br>
+            <span data-bind="text: updated_at"></span><br>
+        </li>
+         </ul>
+</div>
+
+
+
+<script>
+require(['jquery', 'domReady!', 'ordinary_file','Learning_KnockoutJs/js/ordinary_file'], function($, doc, ordinary_file,ordinarywithoutrequire) {
+    'use strict';
+    // you can create alias by requirejs-confg.js or you can directly inject in the require function
+    ordinary_file.functionA();
+    ordinarywithoutrequire.functionB();
+});
+</script>
+<!--- Use Below Map -->
+<script type="text/x-magento-init">
+    {
+        "*":{
+            "Magento_Ui/js/core/app": {
+                "components":{
+                    "usemap":{
+                        "component": "usemap",
+                        "allproducts" : <?= /* @noEscape */ json_encode($collection->getData()); ?>
+                    }
+                }
+            }
+        }
+    }
+</script>
+<!--- Use below paths -->

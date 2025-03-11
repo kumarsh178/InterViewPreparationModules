@@ -1,0 +1,23 @@
+<?php
+$viewModel = $block->getViewModel()
+?>
+ <div data-bind="scope: 'passdata'">
+          <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+
+<script type="text/x-magento-init">
+    {
+        "*":{
+            "Magento_Ui/js/core/app": {
+                "components":{
+                    "passdata":{
+                        "component": "Interview_Practice/js/passdata_to_kj",
+                        "price": <?= /* @noEscape */ $viewModel->getPrices() ?>,
+                        "message": "<?= /* @noEscape */ $viewModel->getMessage() ?>",
+                        "allorders":<?= /* @noEscape */ $viewModel->getAllOrdersList() ?>
+                    }
+                }
+            }
+        }
+    }
+</script>

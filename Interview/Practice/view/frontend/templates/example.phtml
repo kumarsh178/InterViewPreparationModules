@@ -1,0 +1,39 @@
+<h2>Example : </h2>
+<p>
+<h1>Booking page</h1>
+    <div data-bind="scope: 'mycomponent'">
+        <div data-bind="text: title"></div>
+    </div>
+</p>
+
+<script type="text/x-magento-init">
+    {
+        "*":{
+            "Magento_Ui/js/core/app": {
+                "components":{
+                    "mycomponent":{
+                        "component": "Interview_Practice/js/customtext",
+                        "modulename ": "<?= $block->escapeJs($block->getModuleName()); ?>"
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<div id="custom-component" data-bind="scope:'customcomponent'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+    {
+        "#custom-component": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "customcomponent": {
+                        "component": "Interview_Practice/js/custom-component"
+                    }
+                }
+            }
+        }
+    }
+    </script>
+</div>
